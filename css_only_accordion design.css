@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins' sans-serif;
+    font-family: "Poppins" sans-serif;
 }
 
 body {
@@ -14,11 +14,10 @@ body {
 }
 
 .container {
-    margin: 0  40px;
+    margin: 0 40px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 }
 
 .container h1 {
@@ -32,12 +31,21 @@ body {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .container .tab input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    /* 
+        appearance 很多浏览器都不支持这个属性  详细见：https://developer.mozilla.org/zh-CN/docs/Web/CSS/appearance#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7
+        使用 appearance 是为了清除默认的[input  type = radio]选中样式，但是很遗憾，浏览器的兼容性并不好
+
+        那么如何解决该问题？
+        可以将 input 隐藏
+    */
+    /* 不占位 隐藏 */
+    display: none;
+    /* 占位 隐藏 */
+    /* visibility: hidden;  */
 }
 
 .container .tab label {
@@ -56,7 +64,7 @@ body {
 }
 
 .container .tab:hover label::after {
-    color:#333
+    color: #333;
 }
 
 .container .tab input:checked ~ label::after {
@@ -131,12 +139,11 @@ body {
 
 .container .tab .content p {
     position: relative;
-    padding: 10px  0;
+    padding: 10px 0;
     color: #333;
     z-index: 10;
 }
 
 .container .tab input:checked ~ .content p {
     color: #fff;
-
 }
